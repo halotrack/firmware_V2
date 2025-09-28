@@ -11,21 +11,19 @@ void app_main(void) {
          FW_GIT_TAG, FW_GIT_SHA, FW_BUILD_DATE);
          
 
-    // Hacer titilar cada 500ms el LED en GPIO0
-    gpio_pad_select_gpio(GPIO_NUM_0);
-    gpio_set_direction(GPIO_NUM_0, GPIO_MODE_OUTPUT);
-
-    for (int i = 0; i < 10; i++) { // Titilar 10 veces antes de continuar
-        gpio_set_level(GPIO_NUM_0, 1);
-        vTaskDelay(500 / portTICK_PERIOD_MS);
-        gpio_set_level(GPIO_NUM_0, 0);
-        vTaskDelay(500 / portTICK_PERIOD_MS);
-    }
 
          
-    //inicializar_sistema();
-    //create_task_HX711();
-    //create_task_MQTT();
+    inicializar_sistema();
+    create_task_HX711();
+    create_task_MQTT();
+    printf("========================================\n");
+    printf("         HALO - Version 2.0\n");
+    printf("========================================\n");
+
+    ESP_LOGI(TAG, "----------VERSION 2.0.0----------------");
+    ESP_LOGE(TAG, "----------VERSION 2.0.0----------------");
+    ESP_LOGW(TAG, "----------VERSION 2.0.0----------------");
+
 
 }
 
